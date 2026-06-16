@@ -117,12 +117,6 @@ it plans, builds, and ships — checking in only when a real decision or risk ne
 
 ## 🗺️ How it works (the full process)
 
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/tomzion90/superstack/main/assets/media/02_flow.png" alt="SuperStack process: idea, kickoff, scaffold, build, launch, repeat" width="820">
-
-</div>
-
 ```
 💡 idea ─▶ 🧭 KICKOFF ─▶ 🏗️ SCAFFOLD ─▶ 🔬 BUILD ─▶ 🌍 LAUNCH ─▶ 🔁 v2
 ```
