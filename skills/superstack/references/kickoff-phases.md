@@ -1094,11 +1094,50 @@ acceptance signal of session 1.** If they're not there, debug (is the remote
 set, does the commit exist locally, what does the push error say) before
 declaring done.
 
-**9.4 — Closing ritual.** Run the closing ritual from `rituals.md`: a brief
-honest retrospective and session score, **write the session-log entry to disk**
-(a real file write), confirm the first ADR captures the *why* behind each
-decision, preview the next session's first concrete task, commit and push any
-final edits, and say goodbye. The project is real now.
+**9.4 — Closing ritual (fires automatically here — do not wait for a farewell).**
+The verified push at 9.3 *is* the session boundary, so run the closing ritual
+from `rituals.md` now, without waiting for the user to say goodbye. Follow its
+exact output template: a brief honest retrospective and the session-score
+**table**, **write the session-log entry to disk** (a real file write), confirm
+the first ADR captures the *why* behind each decision, report uncommitted work,
+give the gate-first commit+push block, and present the next-session Focus Menu
+(three tasks, each with its tool + model). Do not declare the kickoff done until
+this ritual has actually run.
+
+**9.5 — Kickoff Done handoff (the celebration + how-it-works-from-here).** After
+the closing ritual, send ONE short, warm, celebratory message that tells the
+founder the project is real and shows them the rhythm from here. This is the
+emotional payoff of session 1 — keep it fun, focused, and skimmable, not a wall
+of text. Adapt the wording to the project; keep the shape:
+
+```
+🎉 **Kickoff done — <project name> is live!**
+
+You now have a real repo, backed up online, with a plan, guardrails (budget +
+license), and a roadmap. This isn't an idea anymore — it's a project.
+
+**How to pick it back up — every time:**
+1. Open a **new chat**.
+2. **Attach this project folder** so I can see the code and our notes.
+3. Just say **"hi"** — that's all. I'll read where we left off and open with a
+   short menu of 3 tasks.
+Then you pick one, and I build it end-to-end and hand back a finished, reviewed
+result.
+
+**How to close out — every time:**
+When you're done for the day, just say **"bye"** (or "that's it for today" —
+anything that sounds like goodbye). That's your signal, and I'll handle the rest:
+I'll write a short honest recap, pull out the lessons worth keeping, and update
+the roadmap so the next session starts exactly where this one ended. You don't
+have to remember anything between sessions — that's what the rituals are for.
+
+**Your next step:** <first ROADMAP task> — open a new chat when you're ready and
+we'll start building. 🚀
+```
+
+Keep it to roughly this length: one celebratory line, one "what you have now,"
+the open steps, the close cue, and one next step. Write the handoff in English
+(the skill's language); do not switch languages.
 
 ### Exit signal / gate checklist
 
@@ -1108,8 +1147,10 @@ final edits, and say goodbye. The project is real now.
 - [ ] A private remote repository exists and the push succeeded.
 - [ ] The user has refreshed the remote and confirmed the files are visible.
 - [ ] First ADR captures the reasoning behind each kickoff decision.
-- [ ] Closing ritual run; session-log entry written to disk; next session
-      previewed.
+- [ ] Closing ritual run (full output template); session-log entry written to
+      disk; next-session Focus Menu (with tool + model) previewed.
+- [ ] **Kickoff Done handoff sent** — the founder has been told the project is
+      live and how the session rhythm works from here.
 
 ---
 

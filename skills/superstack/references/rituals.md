@@ -131,19 +131,26 @@ extra read. But default to *this focus's* files, not all of them.
 
 ---
 
-## The closing ritual (only on an explicit farewell)
+## The closing ritual (on an explicit farewell — OR automatically when the kickoff's first push is verified)
 
-Fires **only on an explicit farewell** — "thanks, that's it for today," "see you
-tomorrow," "we're done," "good night," or any clear close. **Finishing a task is
-NOT a farewell.** Completing the work is a completion signal, not a session-end
-signal — wait for the explicit close before running this. Do these steps in
-order:
+**Two triggers fire this ritual — treat them as equally binding:**
 
-> **Kickoff exception:** the very first session (the kickoff) always ends by
-> running this full closing ritual at Phase 9, farewell or not — completing the
-> first git push *is* the session boundary. After session 1, the
-> explicit-farewell trigger applies normally.
->
+1. **An explicit farewell** — "thanks, that's it for today," "see you tomorrow,"
+   "we're done," "good night," "let's close," or any clear close. In an
+   *ordinary* session, **finishing a task is NOT a farewell** — completing the
+   work is a completion signal, not a session-end signal, so wait for the
+   explicit close before running this.
+
+2. **The kickoff's first git push is verified (Phase 9.3 passed).** Session 1 is
+   the one exception to the "finishing isn't farewell" rule: the moment the user
+   confirms the files are visible on the remote, that *is* the session boundary,
+   so **run this ritual immediately — farewell or not.** Do not wait for the user
+   to say goodbye, and do not treat "kickoff complete" as just another finished
+   task. If you reached the end of the kickoff and have not run this ritual, you
+   have a bug — run it now.
+
+Do these steps in order:
+
 > **Kickoff paused mid-flight:** a founder with limited hours will often stop
 > *before* Phase 9 (say, after Phase 3), when there's no repo to push to yet. On
 > a farewell mid-kickoff, run a lightweight close instead: write a short resume
@@ -154,10 +161,12 @@ order:
 1. **Retrospective + honest session score (the most important step).** Three
    honest bullets: what worked, what didn't, and ONE concrete improvement for
    next session. Then a session score on three axes — product/code quality,
-   protocol compliance, and efficiency. **Be honest.** An inflated score is
-   worthless; the retrospective only compounds if it tells the truth. If there's
-   no improvement worth recording, say "none this session" and notice the
-   absence — a string of sessions with no improvement is itself a signal.
+   protocol compliance, and efficiency — **rendered as the markdown table shown
+   in the output template below** (a table, never a prose sentence). **Be
+   honest.** An inflated score is worthless; the retrospective only compounds if
+   it tells the truth. If there's no improvement worth recording, say "none this
+   session" and notice the absence — a string of sessions with no improvement is
+   itself a signal.
 
 2. **Compose the session-log entry.** Strict, skimmable format: max 5 content
    bullets plus 2 trailing bullets (one process-improvement, one next-session
@@ -227,6 +236,58 @@ order:
    This menu is written into the session-log entry (step 2) and **becomes next
    session's opening Focus Menu (step 5)** — so the two rituals lock together and
    the next chat opens already knowing what, where, and with what.
+
+### Output template — render the closing ritual EXACTLY in this shape and order
+
+Run steps 1→6 in order and present them to the user in this exact structure. Do
+not reorder, merge, or drop a section; the score is always a table, and the
+next-session menu always carries a tool + model on every line. Fill the
+placeholders; keep the section headers. (The outer four-backtick fence below is
+only to display the template; the real output uses a normal ```` ```bash ````
+block for the commands.)
+
+````
+**Closing ritual — <project name>**
+
+**1 · Retrospective**
+- Worked: <one line>
+- Didn't: <one line>
+- One improvement for next session: <one line>  (or "none this session")
+
+**Session score**
+
+| Axis | Score (1–10) | One-line why |
+|---|---|---|
+| Product / code quality | <n> | <why> |
+| Protocol compliance | <n> | <why> |
+| Efficiency | <n> | <why> |
+
+**2–3 · Session log** — written to `docs/CHATLOG.md` (real file write, not just chat)
+
+**4 · Uncommitted work**
+<output of git status, in plain words>
+
+**5 · Gate-first commit + push**
+```bash
+<build/lint/test command>
+git add -A
+git commit -m "<concise summary of this session>"
+git push
+```
+
+**6 · Next session — pick a focus:**
+1. <task>  (Recommended — most critical) — <why it's most urgent now>.
+   Tool: <Cowork chat / Claude Code / browser>   Model: <the strong one (deep thinking) / the fast one (routine)>
+2. <task> — <why it matters>.
+   Tool: <…>   Model: <…>
+3. <task> — <why it matters>.
+   Tool: <…>   Model: <…>
+• Other / something else
+````
+
+If any section would be empty (e.g. no ROADMAP yet), keep the header and say so
+in one line — never silently drop a numbered section. A close that skips the
+table, reorders steps, or omits tool/model is run wrong.
 
 **Document-hygiene check (light, every close).** Glance at whether any project
 doc has grown heavy this session (a long `CHATLOG.md`, a bloated `CLAUDE.md`).
